@@ -55,7 +55,7 @@ def test_structure(db_connection):
                        'asistencia'}
     with db_connection.cursor() as cur:
         cur.execute(sql)
-        result_tables = {row[0] for row in cursor.fetchall()}
+        result_tables = {row[0] for row in cur.fetchall()}
         assert result_tables == expected_tables, f'''Expected tables {expected_tables},
                                                    but found {result_tables}'''
         
